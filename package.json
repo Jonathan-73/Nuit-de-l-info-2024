@@ -11,21 +11,11 @@
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16",
-    "typescript": "~5.7.2",
-    "vite": "^6.0.3"
+    "tailwindcss": "^3.4.15",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.1"
   },
-  "description": "> La crème de la crème",
-  "main": "tailwind.config.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jonathan-73/Nuit-de-l-info-2024.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jonathan-73/Nuit-de-l-info-2024/issues"
-  },
-  "homepage": "https://github.com/Jonathan-73/Nuit-de-l-info-2024#readme"
+  "dependencies": {
+    "extract-svg-path": "^2.1.0"
+  }
 }
