@@ -7,9 +7,25 @@
     left: calc(100% * var(--width-ratio));
     top: calc(100% * var(--height-ratio));
 
-  display: block;
-  height: 10px;
-  width: 10px;
-  background-color: blue;
-  transform: translate(-50%, -50%);
+    --border-thickness: 8px;
+    --diameter: calc(var(--border-thickness)*2);
+
+    display: block;
+    height: var(--diameter);
+    width: var(--diameter);
+    border: var(--border-thickness) solid blue;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+
+    transition: 
+        border-width .2s ease-out,
+        height .2s ease-out,
+        width .2s ease-out;
+}
+
+.MenuEntryRoot:focus,
+.MenuEntryRoot:focus-visible{
+    --diameter: 30px;
+    --border-thickness: 5px;
+    outline: none;
 }
