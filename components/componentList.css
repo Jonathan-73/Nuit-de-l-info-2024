@@ -1,0 +1,31 @@
+.bubble {
+  position: absolute;
+  top: -50px; /* Ajustez pour positionner au-dessus */
+  left: 50%; /* Centre horizontal */
+  transform: translateX(-50%); /* Centre exact */
+  background-color: #d8af0b;
+  border: 5px solid #000;
+  border-radius: 15px;
+  padding: 10px 15px;
+  max-width: 250px;
+  color: #000;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 14px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  display: none; /* Masqué par défaut */
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* Flèche sous la bulle */
+  left: 50%; /* Centre horizontal */
+  transform: translateX(-50%);
+  border-width: 10px 10px 0 10px; /* Taille de la flèche */
+  border-style: solid;
+  border-color: #1097e6 transparent transparent transparent;
+}
+
+.bubble.active {
+  display: block; /* Affiche la bulle quand elle est active */
+}
