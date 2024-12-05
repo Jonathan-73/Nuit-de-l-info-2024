@@ -3,9 +3,11 @@ const gameBoard = document.getElementById('game-board');
 const targetElement = document.getElementById('target-character');
 
 let targetCharacter = '';
-const characterSize = 60; // Assumed size of the character element
+let characterSize = 60; // Assumed size of the character element
+let fontSize = 24;
 let positions = [];
 
+let timesTried = 0;
 
 function isOverlapping(x1, y1, x2, y2) {
   return (
@@ -23,10 +25,18 @@ function getValidPosition() {
   const maxY = boardRect.height - characterSize;
   let x, y, isValid;
 
+  //initial time varible
+  let time = new Date().getTime();
+
   do {
     x = Math.random() * maxX;
     y = Math.random() * maxY;
     isValid = positions.every(({ x: existingX, y: existingY }) => !isOverlapping(x, y, existingX, existingY));
+    //if the time is greater than 5 seconds, break the loop
+    if (new Date().getTime() - time > 5000) {
+      window.location.href = "https://www.pointvision.com/grenoble/";
+      break;
+    }
   } while (!isValid);
 
   positions.push({ x, y });
@@ -52,6 +62,9 @@ function createCharacter(character: string) {
 
   
   const { x, y } = getValidPosition();
+  charElement.style.width = `${characterSize}px`;
+  charElement.style.height = `${characterSize}px`;
+  charElement.style.fontSize = `${fontSize}px`;
   charElement.style.transform = `translate(${x}px, ${y}px)`;
 
   
@@ -59,9 +72,25 @@ function createCharacter(character: string) {
     if (character === targetCharacter) {
       markCaptchaAsPassed(); 
     } else {
+      timesTried++;
+      console.log(timesTried);
+
       const tryAgain = document.getElementById("try-again");
       tryAgain?.classList.remove("hidden");
-      startGame();
+      //If the user clicks on the wrong character, make all the characters bigger
+      characterSize += 5;
+      fontSize += 2;
+      
+      if(timesTried >= 3){
+        tryAgain.innerHTML = "You have tried too many times, you will be redirected to the opticien page";
+        
+        setTimeout(() => {
+          window.location.href = "https://www.pointvision.com/grenoble/";
+        }, 3000);
+      }else{
+        console.log("Try again");
+        startGame();
+      }
     }
   });
 
@@ -77,7 +106,7 @@ function createCharacter(character: string) {
   setTimeout(() => {
     moveCharacter();
     setInterval(moveCharacter, 2500); // Keep moving every 2.5 seconds
-  }, 1500); // 1.5-second delay before the first move
+  }, 1000); // 1-second delay before the first move
 }
 
 
