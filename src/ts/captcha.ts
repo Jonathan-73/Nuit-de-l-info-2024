@@ -69,7 +69,7 @@ function createCharacter(character: string) {
 
   
   charElement.addEventListener("click", () => {
-    if (character === targetCharacter) {
+    if (character === targetCharacter && timesTried < 3) {
       markCaptchaAsPassed(); 
     } else {
       timesTried++;
