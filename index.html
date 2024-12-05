@@ -11,6 +11,14 @@
     <img src="Stacktiflette.png" class="h-96 rounded-md shadow-lg shadow-gray-400 transition-all 
     	 hover:-translate-y-4 hover:scale-[105%]
     "/>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/ts/main.ts"></script>
+    <script>
+      const token = sessionStorage.getItem("captchaToken");
+      const tokenHash = sessionStorage.getItem("captchaHash");
+    
+      if (!token || !tokenHash || btoa(token) !== tokenHash) {
+        window.location.href = "/captcha.html";
+      }
+    </script>    
   </body>
 </html>

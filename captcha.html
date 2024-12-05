@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/css/captcha.css" />
+  </head>
+
+  <body>
+    <!-- CAPTCHA Modal -->
+    <div
+      id="captcha-container"
+      class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+    >
+      <div id="robot-check" class="bg-white p-8 rounded shadow-lg text-center">
+        <p class="mb-4 text-lg font-semibold">Are you not a robot?</p>
+        <button
+          id="captcha-confirm"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          I'm not a robot
+        </button>
+      </div>
+      <!-- Main Game -->
+      <div id="game-container" class="hidden bg-white p-8">
+        <p id="target" class="text-lg font-semibold">
+          Find: <span id="target-character"></span>
+          <span id="try-again" class="hidden">Try again</span>
+        </p>
+        <div
+          id="game-board"
+          class="w-96 h-96 border-2 border-black mx-auto mt-4 relative overflow-hidden"
+        ></div>
+        <p id="score" class="mt-4 text-lg">Score: 0</p>
+      </div>
+    </div>
+    <script src="/src/ts/captcha.ts"></script>
+  </body>
+</html>
