@@ -40,8 +40,9 @@ Transpiler le projet
 ```
 npx tsc
 ```
+Lancer le projet
+```
+npm i
+npm run dev
+```
 
-Compiler le projet
-```
-npm run build
-```

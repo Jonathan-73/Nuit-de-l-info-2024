@@ -1,0 +1,389 @@
+/* Général */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ------------------------------------------- */
+/* Classes utilitaires */
+
+/* Style de base */
+
+.text-center {
+  text-align: center;
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+.text-medium {
+  font-size: 1.125rem;
+}
+
+.text-large {
+  font-size: 1.5rem;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.flex {
+  display: flex;
+}
+
+/* Couleurs spécifiques */
+
+.bg-black {
+  background-color: #000;
+}
+
+.bg-gray-29 {
+  background-color: #292929;
+}
+
+.bg-gray-c9 {
+  background-color: #c9c9c9;
+}
+
+.bg-gray-f9 {
+  background-color: #f9f9f9;
+}
+
+.bg-late-white {
+  background-color: #f5f5f5;
+}
+
+.text-blue {
+  color: #1d4ed8;
+}
+
+.text-black {
+  color: #000;
+}
+
+.text-gray-c9 {
+  color: #c9c9c9;
+}
+
+.text-gray-33 {
+  color: #333333;
+}
+
+.text-white {
+  color: #fff;
+}
+
+/* ------------------------------------------- */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e0dbca;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  position: relative;
+  width: 100%;
+  top: 0;
+  background-color: #2b3a42;
+  color: #fff;
+  box-shadow: #6769e0f0 0px 0px 40px;
+  padding: 10px 0 0 0;
+  overflow: hidden;
+  z-index: 998;
+}
+
+/* Conteneur de contenu du header */
+#header-content {
+  position: relative; /* Pour définir un contexte de positionnement */
+  padding: 10px 20px 5px 10px;
+  z-index: 1000;
+}
+
+/* Logo et titre */
+#header-logo {
+  width: 50px;
+  height: auto;
+  vertical-align: middle;
+}
+
+#header-title {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+/* Navigation */
+#header-nav {
+  overflow-x: auto; /* Permet le défilement horizontal */
+  overflow-y: hidden; /* Empêche le défilement vertical */
+  display: flex; /* Active Flexbox */
+  flex-wrap: nowrap; /* Empêche les éléments de revenir à la ligne */
+  justify-content: start; /* Alignement horizontal */
+  gap: 10px; /* Espacement entre les liens */
+  margin-bottom: 0px;
+}
+
+#header-nav a {
+  flex: 0 0 auto; /* Empêche le redimensionnement automatique */
+  white-space: nowrap; /* Empêche le retour à la ligne du texte */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #6769e0;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+#header-nav a:hover {
+  background-color: #e2863177;
+  color: #0f12c4;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Animation de vagues */
+.waves {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px; /* Fixe pour Safari */
+  min-height: 100px;
+  max-height: 150px;
+  z-index: 999; /* Place les vagues derrière le contenu */
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* Sections */
+section {
+  display: none;
+  position: relative; /* Remplacer relative par static */
+  padding: 2rem 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  overflow-y: auto;  /* Pour permettre le défilement uniquement à l'intérieur de la section */
+}
+
+section.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Animation d'apparition */
+section.active.bounce-in {
+  display: block;
+  animation: bounceInLeft 0.7s ease forwards;
+}
+
+/* Animation de disparition */
+section.bounce-out {
+  animation: bounceOutRight 0.7s ease forwards;
+}
+
+.section-title {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  color: #070ab4;
+  text-shadow: #919191aa 4px 4px 4px;
+}
+
+.section-description {
+  font-size: 1.825rem;
+  color: #292929;
+}
+
+.section-container {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.section-sub-container {
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: #00000055 0px 8px 8px;
+  width: 100%;
+}
+
+.section-background-image {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover; /* Redimensionner une image sans la compresser */
+  opacity: 0.75;
+}
+
+/* Animations de transition d'une section */
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, 0); /* Ajout explicite de translateY(0) */
+  }
+  60% {
+    opacity: 1;
+    transform: translate(10%, 0); /* Ajout explicite de translateY(0) */
+  }
+  100% {
+    transform: translate(0, 0); /* Assurer un alignement horizontal et vertical */
+  }
+}
+
+@keyframes bounceOutRight {
+  0% {
+    transform: translate(0, 0); /* Assurer un alignement horizontal et vertical */
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0); /* Ajout explicite de translateY(0) */
+    opacity: 0;
+  }
+}
+
+/* Style pour les contributeurs */
+#contributors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 2rem;
+}
+
+.contributor {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 20rem;
+  box-shadow: 0 2px 8px #00000033;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contributor:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px #00000055;
+}
+
+.contributor-avatar {
+  background-color: #4d6e80;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.contributor-text {
+  font-size: 0.875rem;
+  color: #333;
+  font-weight: bold;
+}
+
+
+/* Footer */
+footer {
+  position: absolute;
+  background-color: #2b3a42;
+  color: #fff;
+  margin-top: auto;
+  width: 100%;
+  height: 50px;
+  bottom: 0px;
+  z-index: 1000;
+  display: flex; /* Utilisation de Flexbox */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+}
+
+footer .container {
+  text-align: center;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 0; /* Assurez-vous qu'il n'y a pas de marges indésirables */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #header-title {
+      font-size: 1.5rem;
+  }
+
+  .section-title {
+      font-size: 1.5rem;
+  }
+
+  .section-description {
+      font-size: 1rem;
+  }
+
+  #header-nav a {
+      font-size: 1rem;
+      margin: 0 0.5rem;
+  }
+}
