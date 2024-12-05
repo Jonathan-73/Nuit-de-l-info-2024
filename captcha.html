@@ -33,5 +33,13 @@
       </div>
     </div>
     <script src="/src/ts/captcha.ts"></script>
+    <script>
+      const token = sessionStorage.getItem("captchaToken");
+      const tokenHash = sessionStorage.getItem("captchaHash");
+    
+      if (token && tokenHash && btoa(token) === tokenHash) {
+        window.location.href = "/index.html";
+      }
+    </script>  
   </body>
 </html>
