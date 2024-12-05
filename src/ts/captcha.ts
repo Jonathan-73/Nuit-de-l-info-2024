@@ -51,7 +51,6 @@ function markCaptchaAsPassed() {
   const tokenHash = btoa(token); // Obfuscate with base64
   sessionStorage.setItem("captchaToken", token);
   sessionStorage.setItem("captchaHash", tokenHash);
-  alert("Congratulations! You've passed the CAPTCHA.");
   window.location.href = "/index.html"; // Redirect to index
 }
 
