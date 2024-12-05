@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photosynthèse Océanique</title>
+  <link rel="stylesheet" href="./src/css/uploadAnimation.css">
+</head>
+<body>
+  <h1>Photosynthèse Océanique</h1>
+  <!-- Bouton pour lancer l'animation -->
+  <button id="start-animation">Lancer la Photosynthèse</button>  
+  <div id="animation-container">
+    <div id="visual-elements">
+      <div id="co2" class="visual-element">CO<sub>2</sub></div>
+      <div id="light" class="visual-element">☀️ Lumière</div>
+      <div id="plankton" class="visual-element">Plancton 🌊</div>
+      <div id="o2" class="visual-element">O<sub>2</sub></div>
+    </div>
+    <div id="status-bar">
+      <div id="step-text">Cliquez sur le bouton pour commencer</div>
+      <div class="bar">
+        <div id="progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./src/ts/uploadAnimation.ts" type="module"></script>
+</body>
+</html>
