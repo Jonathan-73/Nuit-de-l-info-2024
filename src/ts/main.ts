@@ -1,6 +1,7 @@
 import '/src/css/style.css'
 import {createDivVolumeSlider} from './volumeSlider'
 import musique from '../assets/Μουσική/OceanWaves.mp3'
+import {BodyMenu} from "./bodymenu"
 
 const token = sessionStorage.getItem("captchaToken");
 const tokenHash = sessionStorage.getItem("captchaHash");
@@ -8,6 +9,8 @@ const tokenHash = sessionStorage.getItem("captchaHash");
 if (!token || !tokenHash || btoa(token) !== tokenHash) {
   window.location.href = "/captcha.html";
 }
+
+document.querySelector("#pageContent")?.insertAdjacentElement("beforeend", new BodyMenu().getRoot())
 
 let sliderVolume = createDivVolumeSlider();
 
