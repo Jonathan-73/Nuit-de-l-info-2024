@@ -16,14 +16,13 @@ export class BodyMenu {
         this.#entries = entries
 
         // Background
-        this.#root.insertAdjacentElement("afterbegin", createElement('div', { style: 'width: 100px; height: 100px; background-color: lightgrey;' }))
+        this.#root.insertAdjacentElement("afterbegin", createElement('div', { style: 'width: 400px; height: 400px; background-color: lightgrey;' }))
 
         // Navigation
         let navigationLayer = createElement('div', { id: 'navigationLayer' })
         this.#root.insertAdjacentElement("beforeend", navigationLayer)
 
-        for (const entry of this.#entries)
-        {
+        for (const entry of this.#entries) {
             let button = createElement('button', { class: 'MenuEntryRoot', style: `--width-ratio: ${entry.widthRatio}; --height-ratio: ${entry.heightRatio};`, type: 'button' })
             button.addEventListener('click', entry.callback)
             navigationLayer.insertAdjacentElement('beforeend', button)
