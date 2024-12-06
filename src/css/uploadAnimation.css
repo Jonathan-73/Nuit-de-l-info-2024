@@ -21,6 +21,79 @@ body {
     justify-content: space-between;
     overflow: hidden;
   }
+
+  
+/* Soleil */
+#sun {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    opacity: 1;
+    animation: sun-move 4s infinite alternate ease-in-out;
+  }
+
+  #night {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    opacity: 1;
+    animation: sun-move 4s infinite alternate ease-in-out;
+  }
+  
+  /* Mer */
+  #sea {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: #004466;
+    border-top: 3px solid white;
+  }
+  
+  /* Flèches */
+  .arrow {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0;
+  }
+  
+  #arrow-co2 {
+    left: 40%;
+    top: 120px;
+    color: red;
+  }
+  
+  #arrow-o2 {
+    left: 60%;
+    top: 150px;
+    color: green;
+  }
+  
+  /* Rayons et plancton */
+  #rays {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: yellow;
+    opacity: 0;
+  }
+  
+  #plankton {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: aqua;
+    opacity: 0;
+  }
   
   #visual-elements {
     position: relative;
@@ -42,6 +115,7 @@ body {
   }
   
   #co2 {
+    position: center;
     color: red;
   }
   
