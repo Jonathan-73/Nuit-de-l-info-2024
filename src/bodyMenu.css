@@ -1,5 +1,7 @@
 #bodyMenu {
     position: relative;
+    height: inherit;
+    width: inherit;
 }
 
 .MenuEntryRoot {
@@ -24,6 +26,10 @@
 #BodyMenuBackground {
     background-image: url("/src/assets/body_background.jpg");
     background-size: cover;
+    border-radius: 15px;
+    height: inherit;
+    width: inherit;
+    box-shadow: 0 0 10px 5px white inset;
 }
 
 .MenuEntryRoot:focus,

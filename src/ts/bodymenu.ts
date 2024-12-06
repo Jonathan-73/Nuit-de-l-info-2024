@@ -79,7 +79,7 @@ export class BodyMenu {
         this.#entries = entries
 
         // Background
-        this.#root.insertAdjacentElement("afterbegin", createElement('div', { id: "BodyMenuBackground", style: 'width: 800px; height: 800px;' }))
+        this.#root.insertAdjacentElement("afterbegin", createElement('div', { id: "BodyMenuBackground" }))
 
         // Navigation
         let navigationLayer = createElement('div', { id: 'navigationLayer' })
