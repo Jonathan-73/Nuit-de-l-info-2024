@@ -31,13 +31,18 @@
     --diameter: 30px;
     --border-thickness: 5px;
     outline: none;
+    animation: glowAnim 3s alternate infinite;
+}
+@keyframes glowAnim {
+    from {box-shadow: white 0 0 0px 0;}
+    to {box-shadow: white 0 0 15px 0;}
 }
 
 #animatedBoat {
     position: absolute;
     left: calc(100% * var(--width-ratio));
     top: calc(100% * var(--height-ratio));
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -65%);
     --rotate-url: url("/src/assets/boats/boat_0003.png");
     background-image: var(--rotate-url);
     background-size: cover;
