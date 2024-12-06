@@ -23,6 +23,10 @@
         class="flex flex-col gap-16 items-center justify-center h-full w-full perspective-distant"
     >
         <style>
+            * {
+                --white-space: 15px;
+            }
+
             body {
                 justify-content: space-between !important;
                 gap: 0 !important;
@@ -32,8 +36,6 @@
 
             header,
             footer {
-                --white-space: 15px;
-
                 padding: var(--white-space);
                 width: 100%;
 
@@ -92,6 +94,12 @@
                     class="overflowContainerContent"
                     id="bodyMenuContainer"
                 ></div>
+            </div>
+            <div class="horizontalButtonList">
+                <button type="button" onclick="let dialog = this.querySelector(`dialog`);if (dialog.open) {dialog.close(); return;} dialog.dataset.choice = Math.floor(Math.random() * 7); dialog.showModal()">
+                    <img src="/src/assets/pokeball.png" alt="Envie d'en savoir plus ?">
+                    <dialog><dialog/>
+                </button>
             </div>
         </div>
 
