@@ -1,0 +1,63 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item {
+display: flex;
+justify-content: center;
+align-items: center;
+border: 1px solid #ddd;
+border-radius: 5px;
+background-color: #e9f7fc;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.grid-item img {
+width: 80%;
+height: auto;
+pointer-events: none; /* Disable interaction with the image itself */
+}
+
+.grid-item.green {
+background-color: #4CAF50; /* Green background */
+}
+
+.composition-game{
+    /* min-content:  */
+    white-space: wrap; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#zone-info {
+margin-top: 15px;
+padding: 10px;
+width: 300px; /* Fixed width */
+background-color: #f9f9f9;
+border: 1px solid #ddd;
+border-radius: 5px;
+overflow: hidden; /* Prevents text from overflowing */
+/* white-space: wrap; Keeps text on one line */
+text-overflow: ellipsis; /* Adds ellipsis (...) if the text overflows */
+text-align: center;
+}
+
+.titreCompo {
+margin-bottom: 15px;
+padding: 10px;
+font-size: 30px;
+width: 300px; /* Fixed width */
+background-color: #f9f9f9;
+border: 1px solid #ddd;
+text-align: center;
+}

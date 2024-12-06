@@ -1,3 +1,5 @@
+import { App } from "./app.ts";
+
 let lives = 3;
 let wasteCount = 0;
 let usedPositions = [];
@@ -111,15 +113,45 @@ function showEducation(result) {
         Taking small steps, like recycling or adopting healthy habits, can lead to significant change.
         Let’s keep up the good work for a cleaner ocean and a healthier self!
       </p>
-      <button class="mt-4 px-4 py-2 bg-green-500 text-white rounded" onclick="location.reload()">Play Again</button>
+      <button id="exitButton" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Exit</button>
     </div>
   `;
   
   const gameContainer = document.getElementById("game-container");
   gameContainer.style.display = "none";
+
+  const exitButton = document.getElementById("exitButton");
+  if (exitButton) {
+    exitButton.addEventListener("click", () => {
+      const appInstance = FishingGameApp.currentInstance; // Access the current instance
+      if (appInstance) {
+        appInstance.endGame();
+      } else {
+        console.error("No active FishingGameApp instance found.");
+      }
+    });
+  }
 }
 
+export class FishingGameApp extends App{
 
+  static currentInstance: FishingGameApp | null = null;
+
+  constructor(overlay: HTMLElement
+  ) {
+    super(overlay);
+    this.elem = createFishingGameComponent();
+    overlay.appendChild(this.elem);
+    startGame();
+    FishingGameApp.currentInstance = this;
+  }
+
+  endGame() {
+    this.done();
+    FishingGameApp.currentInstance = null;
+  }
+
+}
 export function createFishingGameComponent(): HTMLDivElement {
   const gameWrapper = document.createElement("div");
 

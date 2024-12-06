@@ -3,7 +3,9 @@ import { createDivVolumeSlider } from './volumeSlider';
 import musique from '../assets/Μουσική/OceanWaves.mp3';
 import { BodyMenu, BodyEntry } from "./bodymenu";
 import { AccidentPetrolierApp } from './accident-petrolier';
+import { CompositionApp } from './composition';
 import { RiverDefenderApp } from './rivierDefender/riverDefender';
+import { FishingGameApp } from './fishing'
 
 // Captcha validation
 const token = sessionStorage.getItem("captchaToken");
@@ -35,13 +37,13 @@ const items: BodyEntry[] = [
   { coordRatio: { heightRatio: .42, widthRatio: .33 }, callback: () => { 
     const app = new AccidentPetrolierApp(overlay);
   }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .4 } },
-  { coordRatio: { heightRatio: .38, widthRatio: .46 }, callback: () => { console.log("Poumons") } },
+  // { coordRatio: { heightRatio: .38, widthRatio: .46 }, callback: () => { console.log("Poumons") } },
   { coordRatio: { heightRatio: .35, widthRatio: .53 }, callback: () => { new RiverDefenderApp(overlay) } },
   { coordRatio: { heightRatio: .42, widthRatio: 1 - .33 }, callback: () => { console.log("Peau (bras côté droite)") }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .6 } },
-  { coordRatio: { heightRatio: .47, widthRatio: 0.45 }, callback: () => { console.log("Foie") } },
+  { coordRatio: { heightRatio: .47, widthRatio: 0.45 }, callback: () => { new FishingGameApp(overlay)} },
   // Uncomment these as needed
-  // { coordRatio: { heightRatio: .76, widthRatio: 0.435 }, callback: () => { console.log("Jambe côté gauche") }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 0.435 } },
-  // { coordRatio: { heightRatio: .76, widthRatio: 1-0.435 }, callback: () => { console.log("Jambe côté droite") }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 1-0.435 } },
+  { coordRatio: { heightRatio: .76, widthRatio: 0.435 }, callback: () => { window.location.pathname = "/clicker.html" }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 0.435 } },
+  { coordRatio: { heightRatio: .76, widthRatio: 1-0.435 }, callback: () => { new CompositionApp(overlay) }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 1-0.435 } },
 ];
 
 document.querySelector("#bodyMenuContainer")?.insertAdjacentElement("beforeend", new BodyMenu(items).getRoot())

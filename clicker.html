@@ -1,0 +1,45 @@
+
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="src//css/clicker.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Accelerez l'oxygene ves les organes !</h1>
+      <div id="canvasWrapper">
+        <canvas id="gameCanvas"></canvas>
+      </div>
+      <div style="display: flex; justify-content: space-around; text-align: center; align-items: center;">
+        <div><p>Oxygene: <span id="clicks">0</span></p></div>
+        <div><p>Auto Oxygenateurs: <span id="autoClickersCount">0</span></p></div>
+        <div><p>Oxygenation par seconde: <span id="autoClickersRate">0</span></p></div>
+      </div>
+      
+      <div>  
+        <button id="buyAutoClicker" disabled>
+          <div style="display: flex; ">
+            <div><p>+ Auto Oxygene / </p></div>
+            <div><p>/ Coût: <span id="autoClickerCost">0</span></p></div>
+          </div>
+        </button>
+
+        <h2>Objectifs d'oxygene ??</h2>
+        <ul id="achievementsList"></ul>
+      </div>
+      <div>
+          <p>
+            Le cœur permet de diffuser l’oxygène dans la totalité du corps. De la même manière, les courants marins permettent de stabiliser la température à travers les océans du monde entier : les pôles (ou les poumons dans notre métaphore) diminuent la chaleur de l’océan, et les tropiques l'augmentent. 
+          </p>
+          <p>
+Il est important de comprendre que l’océan absorbe 94% de la chaleur produite par le réchauffement climatique. Un réchauffement climatique mène donc directement au réchauffement de notre océan, et donc à l’augmentation de son volume, à la fonte des glaciers du pôle, à la destruction des écosystèmes, etc.
+          </p>
+
+      </div>
+    </div>
+    <script type="module" src="/src/ts/clicker.ts"></script>
+  </body>
+</html>

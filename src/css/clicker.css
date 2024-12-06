@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#canvasWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+#gameCanvas {
+  background-color: #f0f0f0;
+  display: block;
+  border: 2px solid #000;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+h1, h2 {
+  color: #333;
+  margin: 0px 0px 5px 0px;
+}
+
+p{
+  padding: 2px 4px;
+  margin: 0;
+}
+
+#achievementsList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#achievementsList li {
+  background-color: #f0f0f0;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 5px;
+}
