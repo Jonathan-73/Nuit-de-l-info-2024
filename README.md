@@ -26,6 +26,8 @@ Les fichiers produits seront dans le dossier `dist`.
 ## Défi : Bad UI Challenge : Concevez la pire interface possible
 
 ## Défi : Catch them all
+En cliquant sur le bouton "Envie d'en savoir plus ?" sur la pokeball en bas du
+site, vous pourrez voir apparaître un des différents QRcodes pokémon générés.
 
 ## Défi : Game Tcha : le CAPTCHA ludique
 
