@@ -29,7 +29,7 @@
 .MenuEntryRoot:focus,
 .MenuEntryRoot:focus-visible {
     --diameter: 30px;
-    --border-thickness: 5px;
+    --border-thickness: 4px;
     outline: none;
     animation: glowAnim 3s alternate infinite;
 }
