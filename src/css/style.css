@@ -5,3 +5,39 @@
 * {
     scroll-behavior: smooth;
 }
+
+.horizontalButtonList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: var(--white-space);
+    padding: var(--white-space);
+}
+
+.horizontalButtonList>* {
+    max-height: 25vmin;
+    max-width: 25vmin;
+}
+
+dialog {
+    padding: var(--white-space);
+    border-radius: var(--white-space);
+    background: white;
+}
+dialog[open]::after {
+    content: "";
+    display: block;
+    height: 60vmin;
+    width: 60vmin;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+dialog[open][data-choice="0"]::after {background-image: url("/QR\ code\ Pokemon/Carapuce.png");}
+dialog[open][data-choice="1"]::after {background-image: url("/QR\ code\ Pokemon/Corayon.png");}
+dialog[open][data-choice="2"]::after {background-image: url("/QR\ code\ Pokemon/Krabby.png");}
+dialog[open][data-choice="3"]::after {background-image: url("/QR\ code\ Pokemon/Tartard.png");}
+dialog[open][data-choice="4"]::after {background-image: url("/QR\ code\ Pokemon/Trépassable.png");}
+dialog[open][data-choice="5"]::after {background-image: url("/QR\ code\ Pokemon/Venalgue.png");}
+dialog[open][data-choice="6"]::after {background-image: url("/QR\ code\ Pokemon/Wailord\ qrcode.png");}

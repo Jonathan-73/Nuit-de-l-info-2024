@@ -4,6 +4,7 @@ import musique from '../assets/Μουσική/OceanWaves.mp3';
 import { BodyMenu, BodyEntry } from "./bodymenu";
 import { AccidentPetrolierApp } from './accident-petrolier';
 import { CompositionApp } from './composition';
+import { RiverDefenderApp } from './rivierDefender/riverDefender';
 
 // Captcha validation
 const token = sessionStorage.getItem("captchaToken");
@@ -36,7 +37,7 @@ const items: BodyEntry[] = [
     const app = new AccidentPetrolierApp(overlay);
   }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .4 } },
   { coordRatio: { heightRatio: .38, widthRatio: .46 }, callback: () => { console.log("Poumons") } },
-  { coordRatio: { heightRatio: .35, widthRatio: .53 }, callback: () => { console.log("Coeur") } },
+  { coordRatio: { heightRatio: .35, widthRatio: .53 }, callback: () => { new RiverDefenderApp(overlay) } },
   { coordRatio: { heightRatio: .42, widthRatio: 1 - .33 }, callback: () => { console.log("Peau (bras côté droite)") }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .6 } },
   { coordRatio: { heightRatio: .47, widthRatio: 0.45 }, callback: () => { console.log("Foie") } },
   // Uncomment these as needed
