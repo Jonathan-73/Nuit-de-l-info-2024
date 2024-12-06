@@ -43,20 +43,19 @@ const items: BodyEntry[] = [
   // { coordRatio: { heightRatio: .76, widthRatio: 1-0.435 }, callback: () => { console.log("Jambe côté droite") }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 1-0.435 } },
 ];
 
-// Insert the BodyMenu
-document.querySelector("#pageContent")?.insertAdjacentElement("beforeend", new BodyMenu(items).getRoot());
+document.querySelector("#bodyMenuContainer")?.insertAdjacentElement("beforeend", new BodyMenu(items).getRoot())
 
-// Volume slider
+// // Volume slider
 let sliderVolume = createDivVolumeSlider();
-let oceanWaves = document.createElement("audio");
-oceanWaves.src = musique;
-oceanWaves.loop = true;
-oceanWaves.onloadeddata = () => oceanWaves.play();
+// let oceanWaves = document.createElement("audio");
+// oceanWaves.src = musique;
+// oceanWaves.loop = true;
+// oceanWaves.onloadeddata = () => oceanWaves.play();
 
-sliderVolume.addEventListener('change', ((evt: CustomEvent) => {
-  let volume = <number>evt.detail;
-  oceanWaves.volume = volume;
-}) as EventListener);
+// sliderVolume.addEventListener('change', ((evt: CustomEvent) => {
+//   let volume = <number>evt.detail;
+//   oceanWaves.volume = volume;
+// }) as EventListener);
 
-document.body.append(sliderVolume);
-document.body.appendChild(oceanWaves);
+// document.body.append(sliderVolume);
+// document.body.appendChild(oceanWaves);
