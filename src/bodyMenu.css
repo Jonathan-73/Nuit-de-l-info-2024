@@ -42,4 +42,18 @@
 
     transition: left ease-in-out calc(var(--move-anim-duration) * 1s),
         top ease-in-out calc(var(--move-anim-duration) * 1s);
+
+    animation: idleBoat 15s infinite;
+}
+
+@keyframes idleBoat {
+    10% {translate: 3px 0px;}
+    20% {translate: 0px -3px;}
+    30% {translate: -3px 3px;}
+    40% {translate: 1px -2px;}
+    60% {translate: 4px 0px;}
+    70% {translate: 2px 2px;}
+    80% {translate: -4px -1px;}
+    90% {translate: 0px 1px;}
+
 }
