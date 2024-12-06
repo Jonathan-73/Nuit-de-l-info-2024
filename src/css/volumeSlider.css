@@ -1,0 +1,28 @@
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.volume-slider-svg-class {
+    width: 100%;
+    height: auto;
+}
+
+.volume-slider-class {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .slider-container {
+        padding: 10px;
+    }
+
+    .volume-slider-class {
+        width: 90%;
+    }
+}
