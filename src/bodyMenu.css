@@ -8,24 +8,38 @@
     top: calc(100% * var(--height-ratio));
 
     --border-thickness: 8px;
-    --diameter: calc(var(--border-thickness)*2);
+    --diameter: calc(var(--border-thickness) * 2);
 
     display: block;
     height: var(--diameter);
     width: var(--diameter);
     border: var(--border-thickness) solid blue;
     transform: translate(-50%, -50%);
-    border-radius: 50%;  
+    border-radius: 50%;
 
-    transition: 
-        border-width .2s ease-out,
-        height .2s ease-out,
-        width .2s ease-out;
+    transition: border-width 0.2s ease-out, height 0.2s ease-out,
+        width 0.2s ease-out;
 }
 
 .MenuEntryRoot:focus,
-.MenuEntryRoot:focus-visible{
+.MenuEntryRoot:focus-visible {
     --diameter: 30px;
     --border-thickness: 5px;
     outline: none;
+}
+
+#animatedBoat {
+    position: absolute;
+    left: calc(100% * var(--width-ratio));
+    top: calc(100% * var(--height-ratio));
+    --rotate-rad: 0;
+    transform: translate(-50%, -50%) rotate(calc(var(--rotate-rad) * -1rad));
+
+    height: 20px;
+    width: 15px;
+    background-color: green;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+
+    transition: left ease-in-out calc(var(--move-anim-duration) * 1s),
+        top ease-in-out calc(var(--move-anim-duration) * 1s);
 }

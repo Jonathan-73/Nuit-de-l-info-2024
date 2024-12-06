@@ -11,9 +11,9 @@ if (!token || !tokenHash || btoa(token) !== tokenHash) {
 }
 
 const items: BodyEntry[] = [
-  {heightRatio: .1, widthRatio: .2, callback: () => {console.log("Callback 1")}},
-  {heightRatio: .3, widthRatio: .4, callback: () => {console.log("Callback 2")}},
-  {heightRatio: 1, widthRatio: 1, callback: () => {console.log("Callback 3")}}
+  { coordRatio: { heightRatio: .1, widthRatio: .2 }, callback: () => { console.log("Callback 1") } },
+  { coordRatio: { heightRatio: .3, widthRatio: .4 }, callback: () => { console.log("Callback 2") } },
+  { coordRatio: { heightRatio: 1, widthRatio: 1 }, callback: () => { console.log("Callback 3") }, accessFromCoordRatio: { heightRatio: .8, widthRatio: 1 } }
 ]
 
 document.querySelector("#pageContent")?.insertAdjacentElement("beforeend", new BodyMenu(items).getRoot())
