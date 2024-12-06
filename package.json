@@ -16,12 +16,7 @@
     "typescript": "~5.6.2",
     "vite": "^6.0.1"
   },
-  "description": "> La crème de la crème",
-  "main": "tailwind.config.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "gsap": "^3.12.5"
+    "easyqrcodejs": "^4.6.1"
   }
 }

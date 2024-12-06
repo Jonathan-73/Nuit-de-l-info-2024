@@ -1,24 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="h-full">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body class="flex flex-col gap-16 items-center justify-center h-full w-full perspective-distant">
-    <h1 class="text-3xl">Stacktiflette</h1>
-    <img src="Stacktiflette.png" class="h-96 rounded-md shadow-lg shadow-gray-400 transition-all 
-    	 hover:-translate-y-4 hover:scale-[105%]
-    "/>
-    <script type="module" src="/src/ts/main.ts"></script>
-    <script>
-      const token = sessionStorage.getItem("captchaToken");
-      const tokenHash = sessionStorage.getItem("captchaHash");
-    
-      if (!token || !tokenHash || btoa(token) !== tokenHash) {
-        window.location.href = "/captcha.html";
-      }
-    </script>    
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Doctocéan</title>
+        <script
+            src="https://kit.fontawesome.com/bd31d07461.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <link rel="preload" href="/src/assets/boats/boat_0001.png" as="image" />
+        <link rel="preload" href="/src/assets/boats/boat_0002.png" as="image" />
+        <link rel="preload" href="/src/assets/boats/boat_0003.png" as="image" />
+        <link rel="preload" href="/src/assets/boats/boat_0004.png" as="image" />
+        <link rel="preload" href="/src/assets/boats/boat_0005.png" as="image" />
+        <link rel="preload" href="/src/assets/boats/boat_0006.png" as="image" />
+        <link rel="preload" href="/src/assets/boats/boat_0007.png" as="image" />
+        <link rel="preload" href="/src/assets/boats/boat_0008.png" as="image" />
+    </head>
+    <body
+        class="flex flex-col gap-16 items-center justify-center h-full w-full perspective-distant"
+    >
+        <style>
+            body {
+                justify-content: space-between !important;
+                gap: 0 !important;
+                overflow-x: hidden;
+                max-width: 100%;
+            }
+
+            header,
+            footer {
+                --white-space: 15px;
+
+                padding: var(--white-space);
+                width: 100%;
+
+                background: white;
+                box-shadow: lightgrey 0 0 10px;
+            }
+            header {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+                flex-wrap: nowrap;
+
+                gap: var(--white-space);
+            }
+
+            header > img {
+                width: 48px;
+                height: 48px;
+            }
+            header > h1 {
+                font-weight: bolder;
+                font-size: larger;
+            }
+
+            #pageContent {
+                width: clamp(85dvw, 70dvw, 1000px);
+                display: block;
+            }
+
+            #pageContent > * {
+                margin: 20px 0;
+            }
+
+            #pageContent .overflowContainer {
+                height: 70dvh;
+                width: auto;
+            }
+            #pageContent .overflowContainerContent {
+                position: absolute;
+                height: 70dvh;
+                width: 70dvh;
+                left: calc(50% - 70dvh / 2);
+            }
+        </style>
+        <header>
+            <img src="/public/Stacktiflette.png" />
+            <h1>Stacktiflette<br />Pour la nuit de l'info 2024</h1>
+        </header>
+
+        <div id="pageContent">
+            <p id="sitePresentation">Présentation du site.</p>
+            <div class="overflowContainer">
+                <div
+                    class="overflowContainerContent"
+                    id="bodyMenuContainer"
+                ></div>
+            </div>
+        </div>
+
+        <footer>
+            <h2>Contributeurs :</h2>
+            <br />
+            <ul>
+                <li>Alexis Noel</li>
+                <li>Antonin Chabeaudy</li>
+                <li>Antony Cosnay</li>
+                <li>Anastasios Tsiompanidis</li>
+                <li>Charles Damaggio-Crozier</li>
+                <li>Clément Charrière</li>
+                <li>Jonathan Dumaz</li>
+                <li>Julien Pierson</li>
+                <li>Mathieu Moiroux</li>
+                <li>Noah Kohrs</li>
+                <li>Noé Fléchon</li>
+                <li>Pierre Schuller</li>
+                <li>Romain Bouche</li>
+                <li>Swan Auvergne</li>
+            </ul>
+        </footer>
+
+        <link rel="stylesheet" href="src/bodyMenu.css" />
+        <script type="module" src="/src/ts/main.ts"></script>
+    </body>
 </html>
