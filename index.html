@@ -1,24 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="h-full">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body class="flex flex-col gap-16 items-center justify-center h-full w-full perspective-distant">
-    <h1 class="text-3xl">Stacktiflette</h1>
-    <img src="Stacktiflette.png" class="h-96 rounded-md shadow-lg shadow-gray-400 transition-all 
-    	 hover:-translate-y-4 hover:scale-[105%]
-    "/>
-    <script type="module" src="/src/ts/main.ts"></script>
-    <script>
-      const token = sessionStorage.getItem("captchaToken");
-      const tokenHash = sessionStorage.getItem("captchaHash");
-    
-      if (!token || !tokenHash || btoa(token) !== tokenHash) {
-        window.location.href = "/captcha.html";
-      }
-    </script>    
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite + TS</title>
+        <script
+            src="https://kit.fontawesome.com/bd31d07461.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body
+        class="flex flex-col gap-16 items-center justify-center h-full w-full perspective-distant"
+    >
+        <div id="pageContent"></div>
+
+        <link rel="stylesheet" href="src/bodyMenu.css" />
+        <script type="module" src="/src/ts/main.ts"></script>
+    </body>
 </html>
