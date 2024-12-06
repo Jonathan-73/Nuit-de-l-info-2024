@@ -127,7 +127,7 @@ export function createFishingGameComponent(): HTMLDivElement {
     "bg-blue-200 flex flex-col items-center justify-center h-full w-full";
 
   gameWrapper.innerHTML = `
-      <div id="game-container">
+      <div id="game-container" class="text-center">
           <h1 class="text-3xl font-bold mb-4">Repêcher des Déchets</h1>
           <p class="mb-6 text-lg">Click to remove waste, avoid beneficial items!</p>
           <div
@@ -145,3 +145,16 @@ export function createFishingGameComponent(): HTMLDivElement {
 
   return gameWrapper;
 }
+
+/*Possible example of an activiry component
+document.addEventListener("DOMContentLoaded", () => {
+  const appRoot = document.getElementById("app");
+  if (appRoot) {
+    const gameComponent = createFishingGameComponent();
+    appRoot.appendChild(gameComponent);
+    startGame();
+  } else {
+    console.error("#app element not found.");
+  }
+});
+*/
