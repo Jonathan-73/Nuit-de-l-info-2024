@@ -36,12 +36,12 @@ const items: BodyEntry[] = [
   { coordRatio: { heightRatio: .42, widthRatio: .33 }, callback: () => { 
     const app = new AccidentPetrolierApp(overlay);
   }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .4 } },
-  { coordRatio: { heightRatio: .38, widthRatio: .46 }, callback: () => { console.log("Poumons") } },
+  // { coordRatio: { heightRatio: .38, widthRatio: .46 }, callback: () => { console.log("Poumons") } },
   { coordRatio: { heightRatio: .35, widthRatio: .53 }, callback: () => { new RiverDefenderApp(overlay) } },
   { coordRatio: { heightRatio: .42, widthRatio: 1 - .33 }, callback: () => { console.log("Peau (bras côté droite)") }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .6 } },
   { coordRatio: { heightRatio: .47, widthRatio: 0.45 }, callback: () => { console.log("Foie") } },
   // Uncomment these as needed
-  // { coordRatio: { heightRatio: .76, widthRatio: 0.435 }, callback: () => { console.log("Jambe côté gauche") }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 0.435 } },
+  { coordRatio: { heightRatio: .76, widthRatio: 0.435 }, callback: () => { window.location.pathname = "/clicker.html" }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 0.435 } },
   { coordRatio: { heightRatio: .76, widthRatio: 1-0.435 }, callback: () => { new CompositionApp(overlay) }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 1-0.435 } },
 ];
 
