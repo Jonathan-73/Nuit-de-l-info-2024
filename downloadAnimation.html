@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fonctionnement des Poumons</title>
+  <link rel="stylesheet" href="./src/css/downloadAnimation.css">
+</head>
+<body>
+    <h1>Fonctionnement des Poumons</h1>
+      <!-- Bouton pour lancer l'animation -->
+      <button id="start-animation">Lancer l'Animation des Poumons</button>  
+      <div id="animation-container">
+      <div id="visual-elements">
+        <div id="expiration">💨</div>
+        <div id="skin"></div>
+        <div class="arrow" id="arrow-co2">⬆️ CO₂</div>
+        <div class="arrow" id="arrow-o2"> ⬇️ O₂</div>
+        <div id="co2" class="visual-element">CO<sub>2</sub></div>
+        <div id="blood" class="visual-element">🩸 Sang</div>
+        <div id="lungs" class="visual-element"> bronchiole 🫁</div>
+        <div id="o2" class="visual-element">O<sub>2</sub></div>
+        <div id="inspiration">🌬️</div>
+    </div>
+    <div id="status-bar">
+        <div id="step-text">Cliquez sur le bouton pour commencer</div>
+        <div class="bar">
+          <div id="progress"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./src/ts/downloadAnimation.ts" type="module"></script>
+</body>
+</html>
