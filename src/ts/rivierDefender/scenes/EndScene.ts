@@ -24,7 +24,8 @@ export class EndScene extends Scene {
                 repeat: 0,
                 scaleX: 0.6,
                 onComplete: () => {
-                    window.location.href = '/';
+                    //@ts-ignore
+                    window.quitNoah();
                 }
             });
         });
