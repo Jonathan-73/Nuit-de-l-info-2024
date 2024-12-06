@@ -3,6 +3,7 @@ import { createDivVolumeSlider } from './volumeSlider';
 import musique from '../assets/Μουσική/OceanWaves.mp3';
 import { BodyMenu, BodyEntry } from "./bodymenu";
 import { AccidentPetrolierApp } from './accident-petrolier';
+import { CompositionApp } from './composition';
 
 // Captcha validation
 const token = sessionStorage.getItem("captchaToken");
@@ -40,7 +41,7 @@ const items: BodyEntry[] = [
   { coordRatio: { heightRatio: .47, widthRatio: 0.45 }, callback: () => { console.log("Foie") } },
   // Uncomment these as needed
   // { coordRatio: { heightRatio: .76, widthRatio: 0.435 }, callback: () => { console.log("Jambe côté gauche") }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 0.435 } },
-  // { coordRatio: { heightRatio: .76, widthRatio: 1-0.435 }, callback: () => { console.log("Jambe côté droite") }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 1-0.435 } },
+  { coordRatio: { heightRatio: .76, widthRatio: 1-0.435 }, callback: () => { new CompositionApp(overlay) }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 1-0.435 } },
 ];
 
 document.querySelector("#bodyMenuContainer")?.insertAdjacentElement("beforeend", new BodyMenu(items).getRoot())
