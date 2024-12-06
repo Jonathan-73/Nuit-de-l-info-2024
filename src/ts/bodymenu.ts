@@ -10,7 +10,6 @@ export interface BodyEntry {
     callback: () => void
     accessFromCoordRatio?: CoordRatio
 }
-// let bodyEntry: BodyEntry = {coordHeight: 1, coordWidth: 2, callBack: (a) => a}
 
 class BodyBoat {
     #root: HTMLElement
