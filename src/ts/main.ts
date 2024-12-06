@@ -1,7 +1,14 @@
 import '/src/css/style.css'
 import {createDivVolumeSlider} from './volumeSlider'
 import musique from '../assets/Μουσική/OceanWaves.mp3'
-// Ts ...
+
+const token = sessionStorage.getItem("captchaToken");
+const tokenHash = sessionStorage.getItem("captchaHash");
+
+if (!token || !tokenHash || btoa(token) !== tokenHash) {
+  window.location.href = "/captcha.html";
+}
+
 let sliderVolume = createDivVolumeSlider();
 
 let oceanWaves = document.createElement("audio");
