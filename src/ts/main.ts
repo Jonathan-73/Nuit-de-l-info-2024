@@ -33,7 +33,7 @@ document.body.appendChild(overlay);
 
 // Define items
 const items: BodyEntry[] = [
-  { coordRatio: { heightRatio: .125, widthRatio: .5 }, callback: () => { console.log("Tête") }, accessFromCoordRatio: { heightRatio: .23, widthRatio: .5 } },
+  { coordRatio: { heightRatio: .125, widthRatio: .5 }, callback: () => { window.location.href = "https://youtu.be/XKZBUITJC_A" }, accessFromCoordRatio: { heightRatio: .23, widthRatio: .5 } },
   { coordRatio: { heightRatio: .42, widthRatio: .33 }, callback: () => { 
     const app = new AccidentPetrolierApp(overlay);
   }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .4 } },
