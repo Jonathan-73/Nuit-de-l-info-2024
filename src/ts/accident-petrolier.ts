@@ -1,5 +1,6 @@
 import petrolier from "../assets/accident-petrolier/Petrolier.svg";
 import blessure from "../assets/accident-petrolier/Humain.svg";
+import { App } from "./app";
 
 /**
  * 
@@ -12,9 +13,8 @@ import blessure from "../assets/accident-petrolier/Humain.svg";
  * 
  */
 
-export class AccidentPetrolierApp {
+export class AccidentPetrolierApp extends App {
 
-    public elem: HTMLDivElement = document.createElement("div");
     private petrolierCont = document.createElement("div");
     private petrolierSvg?: SVGElement;
     private bateau?: SVGElement;
@@ -38,10 +38,10 @@ export class AccidentPetrolierApp {
     private compris = document.createElement("button");
 
 
-    constructor (private container: HTMLElement, private done: () => void) {
+    constructor (container: HTMLElement) {
 
-        console.log(this)
-
+        super(container);
+        
         container.append(this.elem);   
 
         this.elem.classList.add(
