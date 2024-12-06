@@ -7,7 +7,7 @@ export class EndScene extends Scene {
     }
 
     create() {
-        const text = this.add.image(this.scale.width / 2, 1*this.scale.height / 4, 'thanks');
+        const text = this.add.image(this.scale.width / 2, this.scale.height / 4, 'thanks');
         text.setOrigin(0.5, 0.5);
 
 
