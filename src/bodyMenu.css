@@ -1,0 +1,71 @@
+#bodyMenu {
+    position: relative;
+}
+
+.MenuEntryRoot {
+    position: absolute;
+    left: calc(100% * var(--width-ratio));
+    top: calc(100% * var(--height-ratio));
+
+    --border-thickness: 8px;
+    --diameter: calc(var(--border-thickness) * 2);
+
+    display: block;
+    height: var(--diameter);
+    width: var(--diameter);
+    border: var(--border-thickness) solid white;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    transition: border-width 0.2s ease-out, height 0.2s ease-out,
+        width 0.2s ease-out;
+}
+
+#BodyMenuBackground {
+    background-image: url("/src/assets/body_background.jpg");
+    background-size: cover;
+}
+
+.MenuEntryRoot:focus,
+.MenuEntryRoot:focus-visible {
+    --diameter: 30px;
+    --border-thickness: 4px;
+    outline: none;
+    animation: glowAnim 3s alternate infinite;
+}
+@keyframes glowAnim {
+    from {box-shadow: white 0 0 0px 0;}
+    to {box-shadow: white 0 0 15px 0;}
+}
+
+#animatedBoat {
+    position: absolute;
+    left: calc(100% * var(--width-ratio));
+    top: calc(100% * var(--height-ratio));
+    transform: translate(-50%, -65%);
+    --rotate-url: url("/src/assets/boats/boat_0003.png");
+    background-image: var(--rotate-url);
+    background-size: cover;
+    filter: brightness(1.2);
+
+    --boat-size: 50px;
+    height: var(--boat-size);
+    width: var(--boat-size);
+
+    transition: left ease-in-out calc(var(--move-anim-duration) * 1s),
+        top ease-in-out calc(var(--move-anim-duration) * 1s);
+
+    animation: idleBoat 15s infinite;
+}
+
+@keyframes idleBoat {
+    10% {translate: 3px 0px;}
+    20% {translate: 0px -3px;}
+    30% {translate: -3px 3px;}
+    40% {translate: 1px -2px;}
+    60% {translate: 4px 0px;}
+    70% {translate: 2px 2px;}
+    80% {translate: -4px -1px;}
+    90% {translate: 0px 1px;}
+
+}
