@@ -3,6 +3,7 @@ import { createDivVolumeSlider } from './volumeSlider'
 import {createCompositionDiv } from './composition'
 import musique from '../assets/Μουσική/OceanWaves.mp3'
 import { BodyMenu, BodyEntry } from "./bodymenu"
+import { AccidentPetrolierApp } from './accident-petrolier';
 
 const token = sessionStorage.getItem("captchaToken");
 const tokenHash = sessionStorage.getItem("captchaHash");
@@ -13,7 +14,11 @@ if (!token || !tokenHash || btoa(token) !== tokenHash) {
 
 const items: BodyEntry[] = [
   { coordRatio: { heightRatio: .125, widthRatio: .5 }, callback: () => { console.log("Tête") }, accessFromCoordRatio: { heightRatio: .23, widthRatio: .5 } },
-  { coordRatio: { heightRatio: .42, widthRatio: .33 }, callback: () => { console.log("Bras côté gauche") }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .4 } },
+  { coordRatio: { heightRatio: .42, widthRatio: .33 }, callback: () => { 
+    let element: HTMLElement;
+    let app = new AccidentPetrolierApp(document.body, () => element.remove());
+    element = app.elem;
+  }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .4 } },
   { coordRatio: { heightRatio: .38, widthRatio: .46 }, callback: () => { console.log("Poumons") } },
   { coordRatio: { heightRatio: .35, widthRatio: .53 }, callback: () => { console.log("Coeur") } },
   { coordRatio: { heightRatio: .42, widthRatio: 1 - .33 }, callback: () => { console.log("Peau (bras côté droite)") }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .6 } },
