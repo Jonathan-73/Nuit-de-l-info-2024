@@ -1,8 +1,18 @@
 import "../css/composition.css"
+import { App } from "./app";
 
-export function createCompositionDiv(){
+export class CompositionApp extends App {
 
-    const newDiv = document.createElement("div");
+    constructor(overlay: HTMLElement) {
+        super(overlay)
+
+        createCompositionDiv(this.elem, () => this.done());
+
+    }
+
+}
+
+function createCompositionDiv(newDiv: HTMLElement, close: () => void){
 
     const description = `
     <div class="composition-game">
@@ -19,13 +29,15 @@ export function createCompositionDiv(){
             <div class="grid-item" data-zone="1% de sodium dans l'océan et 0,25% chez les humains"><p>Sodium</p></div>
             <div class="grid-item" data-zone="0,12% de magnésium dans les océans et 0,05% dans le corps humain"><p>Magnésium</p></div>
         </div>
-        <p id="zone-info" >Choisissez une zone pour découvrir les similitudes entre la composition chimique du corps humain et celle de l'océan</p>
-    </div>
+            <p id="zone-info" >Choisissez une zone pour découvrir les similitudes entre la composition chimique du corps humain et celle de l'océan</p>
+            <button class="finish-btn text-white bg-blue-700 font-semibold p-2.5 rounded-md hover:bg-blue-600 active:bg-blue-800">Terminer</button>
+        </div>
     `
     newDiv.innerHTML = (description);
 
     const gridItems = newDiv.querySelectorAll('.grid-item');
     const zoneInfo = newDiv.querySelector('#zone-info');
+    const finishButton = newDiv.querySelector('.finish-btn');
 
     gridItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -33,6 +45,10 @@ export function createCompositionDiv(){
             zoneInfo!.textContent = `${zoneName}`;
             item.classList.toggle('green');
         });
+    });
+
+    finishButton!.addEventListener('click', () => {
+        close();
     });
 
     return newDiv;
