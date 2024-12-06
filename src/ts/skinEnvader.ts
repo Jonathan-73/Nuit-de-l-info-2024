@@ -1,6 +1,5 @@
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
-
+let canvas:HTMLCanvasElement;
+let ctx:HTMLElement;
 const shipImage = new Image();
 shipImage.src = "public/ship.png";
 
@@ -34,8 +33,8 @@ let gameOver = false;
 let gameStarted = false;
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = parent.innerWidth;
+    canvas.height = parent.innerHeight;
 
     ship.speed = (canvas.width / 1000) * 5;
 
@@ -43,8 +42,6 @@ function resizeCanvas() {
     ship.y = canvas.height - ship.height - 60;
 }
 
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
 
 function drawTextWithLineBreaks(text, fontSize, maxWidth, yPosition) {
     ctx.font = fontSize + "px Arial";
@@ -69,7 +66,7 @@ function drawTextWithLineBreaks(text, fontSize, maxWidth, yPosition) {
     ctx.fillText(line, (canvas.width - ctx.measureText(line).width) / 2, yOffset);
 }
 
-function showStartScreen() {
+export function showStartScreen() {
     drawBackground();
     drawBottomBar();
 
@@ -194,7 +191,7 @@ function drawScore() {
 function drawLives() {
     ctx.fillStyle = "black";
     ctx.font = "20px Arial";
-    ctx.fillText("Lives: " + lives, canvas.width - 100, 30);
+    ctx.fillText("Vies: " + lives, canvas.width - 100, 30);
 }
 
 function drawBottomBar() {
@@ -266,22 +263,51 @@ document.addEventListener("touchstart", (e) => {
     }
 });
 
-canvas.addEventListener("touchmove", (e) => {
-    if (gameStarted) {
-        const touchX = e.touches[0].clientX;
+export function setCanvasListeners(){
+    canvas = document.getElementById("gameCanvas");
+    ctx = canvas.getContext("2d");
 
-        if (touchX <= canvas.width / 3) {
-            ship.dx = -ship.speed;
-        } else if (touchX >= 2 * canvas.width / 3) {
-            ship.dx = ship.speed;
-        } else {
-            ship.dx = 0;
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    canvas.addEventListener("touchmove", (e) => {
+        if (gameStarted) {
+            const touchX = e.touches[0].clientX;
+    
+            if (touchX <= canvas.width / 3) {
+                ship.dx = -ship.speed;
+            } else if (touchX >= 2 * canvas.width / 3) {
+                ship.dx = ship.speed;
+            } else {
+                ship.dx = 0;
+            }
         }
-    }
-});
+    });
+    
+    canvas.addEventListener("touchend", () => {
+        ship.dx = 0;
+    });
+}
 
-canvas.addEventListener("touchend", () => {
-    ship.dx = 0;
-});
+export function createSkinInvaderComponent(){
+    const canvas = document.createElement("canvas");
+    canvas.id = "gameCanvas";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    return canvas;
+}
 
+
+/* How to use it in the main.ts file:
+let newElement = createSkinInvaderComponent();
+
+let newDiv = document.createElement("div");
+newDiv.style.width = "500px";
+newDiv.style.height = "500px";
+newDiv.appendChild(newElement);
+document.body.appendChild(newDiv);
+
+setCanvasListeners();
 showStartScreen();
+import { createSkinInvaderComponent, showStartScreen, setCanvasListeners } from './skinEnvader';
+*/
