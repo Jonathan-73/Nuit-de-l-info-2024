@@ -47,11 +47,16 @@ class BodyBoat {
             this.#timeoutId = undefined
             return;
         }
-        const nextWayPoint: CoordRatio = this.#wayPoints.shift()!
+        const nextWayPoint: CoordRatio = structuredClone(this.#wayPoints.shift())!
         const deltaHeight: number = nextWayPoint.heightRatio - parseFloat(this.#root.style.getPropertyValue('--height-ratio'))
         const deltaWidth: number = nextWayPoint.widthRatio - parseFloat(this.#root.style.getPropertyValue('--width-ratio'))
         const angleRad = Math.atan2(-deltaHeight, deltaWidth) - Math.PI / 2
-        console.log(`x=${deltaWidth}, y=${-deltaHeight} -> angle=${angleRad}rad`)
+        if (this.#wayPoints.length === 0)
+        {
+            const abs = Math.sqrt(Math.pow(deltaHeight, 2) + Math.pow(deltaWidth, 2))
+            nextWayPoint.heightRatio -= deltaHeight/abs * .08
+            nextWayPoint.widthRatio -= deltaWidth/abs * .08
+        }
         this.#root.style.setProperty('--rotate-rad', angleRad.toString())
         this.#root.style.setProperty('--height-ratio', nextWayPoint.heightRatio.toString())
         this.#root.style.setProperty('--width-ratio', nextWayPoint.widthRatio.toString())
