@@ -21,6 +21,11 @@
         width 0.2s ease-out;
 }
 
+#BodyMenuBackground {
+    background-image: url("/src/assets/body_background.jpg");
+    background-size: cover;
+}
+
 .MenuEntryRoot:focus,
 .MenuEntryRoot:focus-visible {
     --diameter: 30px;
@@ -32,13 +37,15 @@
     position: absolute;
     left: calc(100% * var(--width-ratio));
     top: calc(100% * var(--height-ratio));
-    --rotate-rad: 0;
-    transform: translate(-50%, -50%) rotate(calc(var(--rotate-rad) * -1rad));
+    transform: translate(-50%, -50%);
+    --rotate-url: url("/src/assets/boats/boat_0003.png");
+    background-image: var(--rotate-url);
+    background-size: cover;
+    filter: brightness(1.2);
 
-    height: 20px;
-    width: 15px;
-    background-color: green;
-    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    --boat-size: 50px;
+    height: var(--boat-size);
+    width: var(--boat-size);
 
     transition: left ease-in-out calc(var(--move-anim-duration) * 1s),
         top ease-in-out calc(var(--move-anim-duration) * 1s);

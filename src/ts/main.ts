@@ -11,9 +11,12 @@ if (!token || !tokenHash || btoa(token) !== tokenHash) {
 }
 
 const items: BodyEntry[] = [
-  { coordRatio: { heightRatio: .1, widthRatio: .2 }, callback: () => { console.log("Callback 1") } },
-  { coordRatio: { heightRatio: .3, widthRatio: .4 }, callback: () => { console.log("Callback 2") } },
-  { coordRatio: { heightRatio: 1, widthRatio: 1 }, callback: () => { console.log("Callback 3") }, accessFromCoordRatio: { heightRatio: .8, widthRatio: 1 } }
+  { coordRatio: { heightRatio: .13, widthRatio: .5 }, callback: () => { console.log("Tête") }, accessFromCoordRatio: { heightRatio: .23, widthRatio: .5 } },
+  { coordRatio: { heightRatio: .42, widthRatio: .33 }, callback: () => { console.log("Bras côté gauche") }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .4 } },
+  { coordRatio: { heightRatio: .4, widthRatio: .5 }, callback: () => { console.log("Poumons") } },
+  { coordRatio: { heightRatio: .42, widthRatio: 1-.33 }, callback: () => { console.log("Bras côté droite") }, accessFromCoordRatio: { heightRatio: .3, widthRatio: .6 } },
+  { coordRatio: { heightRatio: .76, widthRatio: 0.435 }, callback: () => { console.log("Jambe côté gauche") }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 0.435 } },
+  { coordRatio: { heightRatio: .76, widthRatio: 1-0.435 }, callback: () => { console.log("Jambe côté droite") }, accessFromCoordRatio: { heightRatio: .56, widthRatio: 1-0.435 } },
 ]
 
 document.querySelector("#pageContent")?.insertAdjacentElement("beforeend", new BodyMenu(items).getRoot())

@@ -50,17 +50,22 @@ class BodyBoat {
         const nextWayPoint: CoordRatio = structuredClone(this.#wayPoints.shift())!
         const deltaHeight: number = nextWayPoint.heightRatio - parseFloat(this.#root.style.getPropertyValue('--height-ratio'))
         const deltaWidth: number = nextWayPoint.widthRatio - parseFloat(this.#root.style.getPropertyValue('--width-ratio'))
-        const angleRad = Math.atan2(-deltaHeight, deltaWidth) - Math.PI / 2
+        const angleRad = Math.atan2(-deltaHeight, deltaWidth)
         if (this.#wayPoints.length === 0)
         {
             const abs = Math.sqrt(Math.pow(deltaHeight, 2) + Math.pow(deltaWidth, 2))
-            nextWayPoint.heightRatio -= deltaHeight/abs * .08
-            nextWayPoint.widthRatio -= deltaWidth/abs * .08
+            nextWayPoint.heightRatio -= deltaHeight/abs * .04
+            nextWayPoint.widthRatio -= deltaWidth/abs * .04
         }
-        this.#root.style.setProperty('--rotate-rad', angleRad.toString())
+        this.#root.style.setProperty('--rotate-url', this.#imageUrlFromAngle(angleRad))
         this.#root.style.setProperty('--height-ratio', nextWayPoint.heightRatio.toString())
         this.#root.style.setProperty('--width-ratio', nextWayPoint.widthRatio.toString())
         this.#timeoutId = setTimeout(() => { this.#moveToNextWayPoint() }, BodyBoat.#moveAnimDurationSecond * 1000 * .93)
+    }
+    #imageUrlFromAngle(angleRad: number) {
+        angleRad += Math.PI*2/8/2
+        angleRad = (angleRad % (Math.PI*2) + (Math.PI*2)) % (Math.PI*2)
+        return `url("/src/assets/boats/boat_000${Math.floor(angleRad / (Math.PI*2/8) + 1)}.png")`
     }
 
     getRoot(): HTMLElement { return this.#root }
@@ -75,7 +80,7 @@ export class BodyMenu {
         this.#entries = entries
 
         // Background
-        this.#root.insertAdjacentElement("afterbegin", createElement('div', { style: 'width: 400px; height: 400px; background-color: lightgrey;' }))
+        this.#root.insertAdjacentElement("afterbegin", createElement('div', { id: "BodyMenuBackground", style: 'width: 800px; height: 800px;' }))
 
         // Navigation
         let navigationLayer = createElement('div', { id: 'navigationLayer' })
